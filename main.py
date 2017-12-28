@@ -26,7 +26,13 @@ def main():
 	titles = []
 	for response_item in response_json['query']['random']:
 		titles.append(response_item['title'])
-	join_words = ["discovered", "created", "caused", "killed", "invented", "drowned", "found", "founded"]
+	
+	join_words = []
+
+	fhandle = open("verbs.txt", 'r')	
+	for line in fhandle.readlines():
+		join_words.append(line)
+	
 	output = titles[0] + " and " + titles[1] + " " + join_words[random.randint(0, len(join_words) - 1)] + " " + titles[2]
 	tweet(output)
 	return 0
