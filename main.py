@@ -33,7 +33,7 @@ def main():
 	for line in fhandle.readlines():
 		join_words.append(line)
 	
-	output = titles[0] + " and " + titles[1] + " " + join_words[random.randint(0, len(join_words) - 1)] + " " + titles[2]
+	output = titles[0] + " and " + titles[1] + " " + join_words[random.randint(0, len(join_words) - 1)].strip() + " " + titles[2]
 	tweet(output)
 	return 0
 
